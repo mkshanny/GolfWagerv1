@@ -1,0 +1,16 @@
+{
+  "name": "casual-golf-rules",
+  "version": "1.0.0",
+  "description": "A web app for casual golf rules and game variations",
+  "main": "app.js",
+  "scripts": {
+    "start": "npx http-server",
+    "build": "echo 'No build step required'"
+  },
+  "keywords": ["golf", "rules", "sports"],
+  "author": "Matt",
+  "license": "ISC",
+  "dependencies": {
+    "http-server": "^14.1.1"
+  }
+}
