@@ -5,12 +5,29 @@
   "main": "app.js",
   "scripts": {
     "start": "npx http-server",
-    "build": "echo 'No build step required'"
+    "build": "echo 'No build step required'",
+    "vercel": "vercel",
+    "vercel-prod": "vercel --prod"
   },
-  "keywords": ["golf", "rules", "sports"],
+  "keywords": [
+    "golf",
+    "rules",
+    "sports"
+  ],
   "author": "Matt",
   "license": "ISC",
   "dependencies": {
     "http-server": "^14.1.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yourusername/casual-golf-rules.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/casual-golf-rules/issues"
+  },
+  "homepage": "https://github.com/yourusername/casual-golf-rules#readme",
+  "devDependencies": {
+    "vercel": "^41.7.8"
   }
 }
