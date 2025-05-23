@@ -29,17 +29,19 @@ body {
     background-color: var(--bg-secondary);
     color: var(--text-primary);
     line-height: 1.4;
-    padding: 0.75rem;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    padding-bottom: calc(3.5rem + var(--ios-safe-area-inset-bottom));
+    padding: 1rem;
+    padding-bottom: calc(4.5rem + var(--ios-safe-area-inset-bottom));
+    margin: 0;
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
     width: 100%;
+    padding: 0 1rem;
 }
 
 /* ===== Header ===== */
@@ -302,18 +304,18 @@ body {
 /* ===== Responsive Styles ===== */
 @media (max-width: 768px) {
     body {
-        padding: 0.5rem;
-        padding-bottom: calc(3.5rem + var(--ios-safe-area-inset-bottom));
+        padding: 0.75rem;
+        padding-bottom: calc(4rem + var(--ios-safe-area-inset-bottom));
     }
-
+    
     .container {
-        padding: 0;
+        padding: 0 0.5rem;
     }
-
+    
     .hero-content {
         margin-bottom: 1rem;
     }
-
+    
     .hero-content h1 {
         font-size: 1.75rem;
     }
@@ -338,6 +340,28 @@ body {
     .details-content {
         padding: 0.6rem;
     }
+
+    .ad-container {
+        padding: 0 0.5rem;
+    }
+    
+    .ad-top {
+        margin: 1.5rem 0;
+    }
+    
+    .ad-bottom {
+        margin: 1.5rem 0 3.5rem 0;
+    }
+}
+
+@media (max-width: 320px) {
+    .ad-container {
+        padding: 0;
+    }
+    
+    .adsbygoogle {
+        height: 60px;
+    }
 }
 
 /* ===== Betting Rules ===== */
@@ -360,15 +384,13 @@ body {
 /* Ad Container Styles */
 .ad-container {
     width: 100%;
-    margin: 1rem 0;
-    min-height: 100px;
+    max-width: 1200px;
+    margin: 0 auto;
     display: flex;
     justify-content: center;
     align-items: center;
+    background: transparent;
     overflow: hidden;
-    background-color: var(--bg-primary);
-    border-radius: 8px;
-    padding: 0.5rem;
 }
 
 .ad-top {
@@ -376,19 +398,13 @@ body {
 }
 
 .ad-bottom {
-    margin: 2rem 0 4rem 0; /* Increased bottom margin to account for fixed filter buttons */
+    margin: 2rem 0 4rem 0;
 }
 
-/* Ensure ads are responsive */
 .adsbygoogle {
+    display: block;
     width: 100%;
-    max-width: 100%;
-    height: auto;
-}
-
-/* Hide ads on very small screens */
-@media (max-width: 320px) {
-    .ad-container {
-        display: none;
-    }
+    max-width: 728px;
+    height: 90px;
+    margin: 0 auto;
 }
