@@ -2,28 +2,82 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Casual Golf Rules</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="GolfWagers">
+    <meta name="theme-color" content="#275c2a">
+    <meta name="description" content="Golf betting rules and scoring guide">
+    <title>GolfWagers</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="pwa.css">
+    <link rel="manifest" href="manifest.json">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- AdSense Script -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7535298485689658"
+     crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="container">
-        <header>
-            <h1>🏌️ Casual Golf Rules</h1>
-            <div class="search-container">
-                <input type="text" id="search-input" placeholder="Search rules...">
-            </div>
-            <div class="filter-buttons">
-                <button class="filter-btn" data-category="all">All Rules</button>
-                <button class="filter-btn" data-category="Basics">Basics</button>
-                <button class="filter-btn" data-category="Friendly Play">Friendly Play</button>
-                <button class="filter-btn" data-category="Team Formats">Team Formats</button>
-                <button class="filter-btn" data-category="Betting Games">Betting Games</button>
-            </div>
-        </header>
-        <main id="rules-container"></main>
+        <div class="hero-content">
+            <img src="clover-logo.png" alt="GolfWagers Logo" class="clover-icon">
+            <h1>GolfWagers</h1>
+        </div>
+        
+        <div class="search-container">
+            <input type="search" id="searchInput" placeholder="Search rules..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+        </div>
+
+        <div class="rules-container" id="rulesContainer"></div>
+
+        <!-- Top Ad Container -->
+        <div class="ad-container ad-top">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-7535298485689658"
+                 data-ad-slot="6932520065"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+        </div>
+
+        <!-- Bottom Ad Container -->
+        <div class="ad-container ad-bottom">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-7535298485689658"
+                 data-ad-slot="6932520065"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+        </div>
+
+        <div class="filter-buttons">
+            <button class="filter-btn" data-category="Betting Games">Betting</button>
+            <button class="filter-btn" data-category="Basics">The Basics</button>
+            <button class="filter-btn" data-category="Team Formats">Team Games</button>
+            <button class="filter-btn" data-category="all">All</button>
+        </div>
     </div>
+
     <script src="rules.js"></script>
     <script src="app.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(registration => {
+                        console.log('ServiceWorker registration successful');
+                    })
+                    .catch(err => {
+                        console.log('ServiceWorker registration failed: ', err);
+                    });
+            });
+        }
+
+        // Initialize AdSense ads
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    <script src="pwa.js"></script>
 </body>
 </html>

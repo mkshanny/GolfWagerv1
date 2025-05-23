@@ -1,0 +1,19 @@
+{
+  "name": "GolfWagers",
+  "short_name": "GolfWagers",
+  "description": "Golf betting rules and scoring guide",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "theme_color": "#275c2a",
+  "background_color": "#ffffff",
+  "orientation": "portrait",
+  "splash_pages": null,
+  "icons": [
+    {
+      "src": "clover-logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

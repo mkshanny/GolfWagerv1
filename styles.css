@@ -1,146 +1,394 @@
+/* ===== Reset & Base Styles ===== */
+:root {
+    --primary-color: #275c2a; /* New green */
+    --primary-hover: #1e4520;
+    --secondary-color: #fbf351; /* New yellow */
+    --text-primary: #275c2a;
+    --text-secondary: #1e4520;
+    --bg-primary: #ffffff;
+    --bg-secondary: #f8fafc;
+    --border-color: #e5e7eb;
+    --accent-color: #fbf351;
+    --accent-hover: #f5eb3d;
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.05);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.05);
+    --title-color: #275c2a;
+    --ios-safe-area-inset-bottom: env(safe-area-inset-bottom, 0px);
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    -webkit-tap-highlight-color: transparent;
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    background-color: #f0f4f8;
-    line-height: 1.6;
-    color: #333;
-    margin: 0;
-    padding: 20px;
-}
-
-#rules-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 15px;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', sans-serif;
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    line-height: 1.4;
+    padding: 0.75rem;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: calc(3.5rem + var(--ios-safe-area-inset-bottom));
 }
 
 .container {
-    max-width: 600px;
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 15px;
-}
-
-header {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-header h1 {
-    font-size: 2rem;
-    margin-bottom: 15px;
-}
-
-.search-container {
-    margin-bottom: 15px;
-}
-
-#search-input {
     width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 1rem;
 }
 
+/* ===== Header ===== */
+.hero-content {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.clover-icon {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+    margin-top: 2px;
+}
+
+.hero-content h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    font-family: 'Playfair Display', serif;
+    color: var(--title-color);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin: 0;
+    padding: 0.25rem 0;
+}
+
+/* ===== Navigation ===== */
 .filter-buttons {
     display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 20px;
+    justify-content: space-around;
+    gap: 0.25rem;
+    flex-wrap: nowrap;
+    margin-bottom: 0;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100vw;
+    background: var(--primary-color);
+    padding: 0.75rem 0.75rem calc(0.75rem + var(--ios-safe-area-inset-bottom)) 0.75rem;
+    z-index: 100;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .filter-btn {
-    background-color: #e0e0e0;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.9);
+    padding: 0.6rem 0.75rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border-radius: 8px;
     border: none;
-    padding: 8px 15px;
-    border-radius: 20px;
+    transition: all 0.2s ease;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    text-align: center;
+    flex: 1;
+}
+
+.filter-btn:hover {
+    background-color: rgba(255, 255, 255, 0.2);
 }
 
 .filter-btn.active {
-    background-color: #007bff;
-    color: white;
+    background-color: #ffffff;
+    color: var(--primary-color);
+}
+
+/* ===== Search Bar ===== */
+.search-container {
+    margin: 0.75rem auto 1.25rem;
+    width: 100%;
+    max-width: 600px;
+}
+
+.search-container input[type="search"] {
+    width: 100%;
+    padding: 0.6rem 0.75rem;
+    font-size: 0.95rem;
+    border: none;
+    border-radius: 8px;
+    background-color: rgba(39, 92, 42, 0.05);
+    transition: all 0.2s ease;
+    font-family: inherit;
+    color: var(--text-primary);
+}
+
+.search-container input[type="search"]:focus {
+    outline: none;
+    background-color: rgba(39, 92, 42, 0.08);
+}
+
+/* ===== Rule Cards ===== */
+.rules-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    padding: 0 0.25rem;
 }
 
 .rule-card {
-    background-color: white;
+    background-color: var(--bg-primary);
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
-    padding: 15px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border: 1px solid #e1e8f0;
+    padding: 1rem;
+    box-shadow: none;
+    transition: transform 0.2s ease;
+    border: 1px solid rgba(39, 92, 42, 0.1);
+    margin-bottom: 0.5rem;
 }
 
-.rule-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+.rule-card:active {
+    transform: scale(0.98);
+    background-color: rgba(39, 92, 42, 0.02);
 }
 
+/* ===== Card Content ===== */
 .rule-card-content {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
+    gap: 0.5rem;
 }
 
 .emoji {
-    font-size: 2.5em;
-    margin-bottom: 8px;
-    opacity: 0.8;
+    font-size: 1.5rem;
+    text-align: left;
+    display: inline-block;
+    margin-right: 0.5rem;
+    vertical-align: middle;
+    color: var(--primary-color);
 }
 
 .title {
-    font-weight: bold;
-    font-size: 1em;
-    color: #2c3e50;
-    margin-bottom: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0;
+    color: var(--text-primary);
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 1.2;
 }
 
 .category {
-    color: #7f8c8d;
-    margin-bottom: 10px;
-    text-transform: uppercase;
-    font-size: 0.7em;
-    letter-spacing: 1px;
-    background-color: #f1f3f5;
-    padding: 3px 8px;
-    border-radius: 15px;
+    display: block;
+    background-color: var(--primary-color);
+    color: #ffffff;
+    font-size: 0.7rem;
+    font-weight: 500;
+    padding: 0.2rem 0.5rem;
+    border-radius: 6px;
+    margin: 0.5rem 0;
+    width: fit-content;
 }
 
 .question {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    margin: 0.5rem 0;
     font-style: italic;
-    margin-bottom: 10px;
-    color: #34495e;
-    font-size: 0.9em;
-    line-height: 1.4;
 }
 
 .answer {
-    color: #2c3e50;
-    text-align: center;
-    line-height: 1.5;
-    font-size: 0.85em;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.4;
+    margin: 0;
+    padding-bottom: 0.5rem;
 }
 
-.rule-card-back .answer {
-    font-size: 1rem;
+/* ===== Enhanced Card Content ===== */
+.rule-details {
+    margin-top: 0.5rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--border-color);
 }
 
-@media (max-width: 480px) {
-    .container {
-        padding: 10px;
+.details-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem;
+    background: rgba(39, 92, 42, 0.05);
+    border-radius: 6px;
+    cursor: pointer;
+    margin-bottom: 0.5rem;
+    transition: background-color 0.2s ease;
+}
+
+.details-toggle:hover {
+    background: rgba(39, 92, 42, 0.08);
+}
+
+.details-toggle span {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--primary-color);
+}
+
+.details-toggle .material-icons {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    transition: transform 0.2s ease;
+}
+
+.details-toggle.active .material-icons {
+    transform: rotate(180deg);
+}
+
+.details-content {
+    display: none;
+    padding: 0.75rem;
+    background: rgba(39, 92, 42, 0.02);
+    border-radius: 6px;
+    margin-top: 0.5rem;
+}
+
+.details-content.active {
+    display: block;
+}
+
+.details-section {
+    margin-bottom: 1rem;
+}
+
+.details-section:last-child {
+    margin-bottom: 0;
+}
+
+.details-section h4 {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin: 0 0 0.5rem 0;
+}
+
+.details-section p {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin: 0;
+    line-height: 1.4;
+}
+
+.details-section ul {
+    margin: 0.25rem 0;
+    padding-left: 1.25rem;
+}
+
+.details-section li {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.25rem;
+    line-height: 1.4;
+}
+
+.details-section li:last-child {
+    margin-bottom: 0;
+}
+
+/* ===== Responsive Styles ===== */
+@media (max-width: 768px) {
+    body {
+        padding: 0.5rem;
+        padding-bottom: calc(3.5rem + var(--ios-safe-area-inset-bottom));
     }
 
-    .rule-card-inner {
-        height: 200px;
+    .container {
+        padding: 0;
+    }
+
+    .hero-content {
+        margin-bottom: 1rem;
+    }
+
+    .hero-content h1 {
+        font-size: 1.75rem;
+    }
+
+    .filter-buttons {
+        padding: 0.6rem 0.6rem calc(0.6rem + var(--ios-safe-area-inset-bottom)) 0.6rem;
+    }
+
+    .filter-btn {
+        padding: 0.5rem 0.6rem;
+        font-size: 0.85rem;
+    }
+
+    .rule-card {
+        padding: 0.875rem;
+    }
+
+    .details-toggle {
+        padding: 0.4rem 0.5rem;
+    }
+
+    .details-content {
+        padding: 0.6rem;
+    }
+}
+
+/* ===== Betting Rules ===== */
+.betting-rules {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.betting-rules p {
+    margin: 0.4rem 0;
+    font-size: 0.85rem;
+}
+
+.betting-rules strong {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+/* Ad Container Styles */
+.ad-container {
+    width: 100%;
+    margin: 1rem 0;
+    min-height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background-color: var(--bg-primary);
+    border-radius: 8px;
+    padding: 0.5rem;
+}
+
+.ad-top {
+    margin: 2rem 0;
+}
+
+.ad-bottom {
+    margin: 2rem 0 4rem 0; /* Increased bottom margin to account for fixed filter buttons */
+}
+
+/* Ensure ads are responsive */
+.adsbygoogle {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Hide ads on very small screens */
+@media (max-width: 320px) {
+    .ad-container {
+        display: none;
     }
 }
