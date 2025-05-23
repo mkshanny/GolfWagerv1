@@ -1,22 +1,4 @@
 /* ===== Reset & Base Styles ===== */
-:root {
-    --primary-color: #275c2a; /* New green */
-    --primary-hover: #1e4520;
-    --secondary-color: #fbf351; /* New yellow */
-    --text-primary: #275c2a;
-    --text-secondary: #1e4520;
-    --bg-primary: #ffffff;
-    --bg-secondary: #f8fafc;
-    --border-color: #e5e7eb;
-    --accent-color: #fbf351;
-    --accent-hover: #f5eb3d;
-    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.05);
-    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.05);
-    --title-color: #275c2a;
-    --ios-safe-area-inset-bottom: env(safe-area-inset-bottom, 0px);
-}
-
 * {
     box-sizing: border-box;
     margin: 0;
@@ -26,14 +8,14 @@
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', sans-serif;
-    background-color: var(--bg-secondary);
-    color: var(--text-primary);
+    background-color: #f8fafc;
+    color: #275c2a;
     line-height: 1.4;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     padding: 1rem;
-    padding-bottom: calc(4.5rem + var(--ios-safe-area-inset-bottom));
+    padding-bottom: calc(4.5rem + env(safe-area-inset-bottom, 0px));
     margin: 0;
 }
 
@@ -63,7 +45,7 @@ body {
     font-size: 2rem;
     font-weight: 700;
     font-family: 'Playfair Display', serif;
-    color: var(--title-color);
+    color: #275c2a;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
     letter-spacing: -0.02em;
     line-height: 1.1;
@@ -82,8 +64,8 @@ body {
     left: 0;
     bottom: 0;
     width: 100vw;
-    background: var(--primary-color);
-    padding: 0.75rem 0.75rem calc(0.75rem + var(--ios-safe-area-inset-bottom)) 0.75rem;
+    background: #275c2a;
+    padding: 0.75rem 0.75rem calc(0.75rem + env(safe-area-inset-bottom, 0px)) 0.75rem;
     z-index: 100;
     box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
 }
@@ -108,7 +90,7 @@ body {
 
 .filter-btn.active {
     background-color: #ffffff;
-    color: var(--primary-color);
+    color: #275c2a;
 }
 
 /* ===== Search Bar ===== */
@@ -127,7 +109,7 @@ body {
     background-color: rgba(39, 92, 42, 0.05);
     transition: all 0.2s ease;
     font-family: inherit;
-    color: var(--text-primary);
+    color: #275c2a;
 }
 
 .search-container input[type="search"]:focus {
@@ -144,7 +126,7 @@ body {
 }
 
 .rule-card {
-    background-color: var(--bg-primary);
+    background-color: #ffffff;
     border-radius: 10px;
     padding: 1rem;
     box-shadow: none;
@@ -171,14 +153,14 @@ body {
     display: inline-block;
     margin-right: 0.5rem;
     vertical-align: middle;
-    color: var(--primary-color);
+    color: #275c2a;
 }
 
 .title {
     font-size: 1rem;
     font-weight: 600;
     margin: 0;
-    color: var(--text-primary);
+    color: #275c2a;
     display: inline-block;
     vertical-align: middle;
     line-height: 1.2;
@@ -186,7 +168,7 @@ body {
 
 .category {
     display: block;
-    background-color: var(--primary-color);
+    background-color: #275c2a;
     color: #ffffff;
     font-size: 0.7rem;
     font-weight: 500;
@@ -199,14 +181,14 @@ body {
 .question {
     font-size: 0.9rem;
     font-weight: 500;
-    color: var(--text-secondary);
+    color: #1e4520;
     margin: 0.5rem 0;
     font-style: italic;
 }
 
 .answer {
     font-size: 0.9rem;
-    color: var(--text-secondary);
+    color: #1e4520;
     line-height: 1.4;
     margin: 0;
     padding-bottom: 0.5rem;
@@ -216,7 +198,7 @@ body {
 .rule-details {
     margin-top: 0.5rem;
     padding-top: 0.75rem;
-    border-top: 1px solid var(--border-color);
+    border-top: 1px solid #e5e7eb;
 }
 
 .details-toggle {
@@ -238,12 +220,12 @@ body {
 .details-toggle span {
     font-size: 0.85rem;
     font-weight: 500;
-    color: var(--primary-color);
+    color: #275c2a;
 }
 
 .details-toggle .material-icons {
     font-size: 1.2rem;
-    color: var(--primary-color);
+    color: #275c2a;
     transition: transform 0.2s ease;
 }
 
@@ -253,8 +235,8 @@ body {
 
 .details-content {
     display: none;
-    padding: 0.75rem;
-    background: rgba(39, 92, 42, 0.02);
+    padding: 0.5rem;
+    background: #ffffff;
     border-radius: 6px;
     margin-top: 0.5rem;
 }
@@ -272,95 +254,121 @@ body {
 }
 
 .details-section h4 {
-    font-size: 0.85rem;
+    color: #275c2a;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
     font-weight: 600;
-    color: var(--primary-color);
-    margin: 0 0 0.5rem 0;
 }
 
 .details-section p {
+    color: #1e4520;
     font-size: 0.85rem;
-    color: var(--text-secondary);
-    margin: 0;
     line-height: 1.4;
+    margin-bottom: 0.5rem;
 }
 
 .details-section ul {
-    margin: 0.25rem 0;
-    padding-left: 1.25rem;
+    list-style-type: disc;
+    padding-left: 1.5rem;
 }
 
 .details-section li {
+    color: #1e4520;
     font-size: 0.85rem;
-    color: var(--text-secondary);
-    margin-bottom: 0.25rem;
     line-height: 1.4;
+    margin-bottom: 0.25rem;
 }
 
 .details-section li:last-child {
     margin-bottom: 0;
 }
 
-/* ===== Responsive Styles ===== */
+/* ===== Ad Containers ===== */
+.ad-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    text-align: center;
+}
+
+.ad-top {
+    margin: 2rem 0;
+}
+
+.ad-bottom {
+    margin: 2rem 0 calc(4.5rem + env(safe-area-inset-bottom, 0px)) 0;
+}
+
+.adsbygoogle {
+    display: block;
+    width: 100%;
+    height: auto;
+    min-height: 100px;
+    background: #f8fafc;
+    border-radius: 8px;
+}
+
+/* ===== Media Queries ===== */
 @media (max-width: 768px) {
     body {
         padding: 0.75rem;
-        padding-bottom: calc(4rem + var(--ios-safe-area-inset-bottom));
+        padding-bottom: calc(4.5rem + env(safe-area-inset-bottom, 0px));
     }
-    
+
     .container {
         padding: 0 0.5rem;
     }
-    
+
     .hero-content {
-        margin-bottom: 1rem;
+        margin-bottom: 0.5rem;
     }
-    
+
     .hero-content h1 {
         font-size: 1.75rem;
     }
 
     .filter-buttons {
-        padding: 0.6rem 0.6rem calc(0.6rem + var(--ios-safe-area-inset-bottom)) 0.6rem;
+        padding: 0.5rem;
     }
 
     .filter-btn {
-        padding: 0.5rem 0.6rem;
+        padding: 0.5rem;
         font-size: 0.85rem;
     }
 
     .rule-card {
-        padding: 0.875rem;
+        padding: 0.75rem;
     }
 
     .details-toggle {
-        padding: 0.4rem 0.5rem;
+        padding: 0.4rem;
     }
 
     .details-content {
-        padding: 0.6rem;
+        padding: 0.4rem;
     }
 
     .ad-container {
         padding: 0 0.5rem;
     }
-    
+
     .ad-top {
         margin: 1.5rem 0;
     }
-    
+
     .ad-bottom {
-        margin: 1.5rem 0 3.5rem 0;
+        margin: 1.5rem 0 calc(4.5rem + env(safe-area-inset-bottom, 0px)) 0;
     }
 }
 
 @media (max-width: 320px) {
     .ad-container {
-        padding: 0;
+        padding: 0 0.25rem;
     }
-    
+
     .adsbygoogle {
-        height: 60px;
+        min-height: 50px;
     }
 }
 
@@ -368,7 +376,7 @@ body {
 .betting-rules {
     margin-top: 1rem;
     padding-top: 1rem;
-    border-top: 1px solid var(--border-color);
+    border-top: 1px solid #e5e7eb;
 }
 
 .betting-rules p {
@@ -377,34 +385,6 @@ body {
 }
 
 .betting-rules strong {
-    color: var(--primary-color);
+    color: #275c2a;
     font-weight: 600;
-}
-
-/* Ad Container Styles */
-.ad-container {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: transparent;
-    overflow: hidden;
-}
-
-.ad-top {
-    margin: 2rem 0;
-}
-
-.ad-bottom {
-    margin: 2rem 0 4rem 0;
-}
-
-.adsbygoogle {
-    display: block;
-    width: 100%;
-    max-width: 728px;
-    height: 90px;
-    margin: 0 auto;
 }
