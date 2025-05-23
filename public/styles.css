@@ -1,0 +1,390 @@
+/* ===== Reset & Base Styles ===== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', sans-serif;
+    background-color: #f8fafc;
+    color: #275c2a;
+    line-height: 1.4;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    padding-bottom: calc(4.5rem + env(safe-area-inset-bottom, 0px));
+    margin: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 0 1rem;
+}
+
+/* ===== Header ===== */
+.hero-content {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.clover-icon {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+    margin-top: 2px;
+}
+
+.hero-content h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #275c2a;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin: 0;
+    padding: 0.25rem 0;
+}
+
+/* ===== Navigation ===== */
+.filter-buttons {
+    display: flex;
+    justify-content: space-around;
+    gap: 0.25rem;
+    flex-wrap: nowrap;
+    margin-bottom: 0;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100vw;
+    background: #275c2a;
+    padding: 0.75rem 0.75rem calc(0.75rem + env(safe-area-inset-bottom, 0px)) 0.75rem;
+    z-index: 100;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.filter-btn {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.9);
+    padding: 0.6rem 0.75rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border-radius: 8px;
+    border: none;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    text-align: center;
+    flex: 1;
+}
+
+.filter-btn:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.filter-btn.active {
+    background-color: #ffffff;
+    color: #275c2a;
+}
+
+/* ===== Search Bar ===== */
+.search-container {
+    margin: 0.75rem auto 1.25rem;
+    width: 100%;
+    max-width: 600px;
+}
+
+.search-container input[type="search"] {
+    width: 100%;
+    padding: 0.6rem 0.75rem;
+    font-size: 0.95rem;
+    border: none;
+    border-radius: 8px;
+    background-color: rgba(39, 92, 42, 0.05);
+    transition: all 0.2s ease;
+    font-family: inherit;
+    color: #275c2a;
+}
+
+.search-container input[type="search"]:focus {
+    outline: none;
+    background-color: rgba(39, 92, 42, 0.08);
+}
+
+/* ===== Rule Cards ===== */
+.rules-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    padding: 0 0.25rem;
+}
+
+.rule-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: none;
+    transition: transform 0.2s ease;
+    border: 1px solid rgba(39, 92, 42, 0.1);
+    margin-bottom: 0.5rem;
+}
+
+.rule-card:active {
+    transform: scale(0.98);
+    background-color: rgba(39, 92, 42, 0.02);
+}
+
+/* ===== Card Content ===== */
+.rule-card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.emoji {
+    font-size: 1.5rem;
+    text-align: left;
+    display: inline-block;
+    margin-right: 0.5rem;
+    vertical-align: middle;
+    color: #275c2a;
+}
+
+.title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0;
+    color: #275c2a;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 1.2;
+}
+
+.category {
+    display: block;
+    background-color: #275c2a;
+    color: #ffffff;
+    font-size: 0.7rem;
+    font-weight: 500;
+    padding: 0.2rem 0.5rem;
+    border-radius: 6px;
+    margin: 0.5rem 0;
+    width: fit-content;
+}
+
+.question {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #1e4520;
+    margin: 0.5rem 0;
+    font-style: italic;
+}
+
+.answer {
+    font-size: 0.9rem;
+    color: #1e4520;
+    line-height: 1.4;
+    margin: 0;
+    padding-bottom: 0.5rem;
+}
+
+/* ===== Enhanced Card Content ===== */
+.rule-details {
+    margin-top: 0.5rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid #e5e7eb;
+}
+
+.details-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem;
+    background: rgba(39, 92, 42, 0.05);
+    border-radius: 6px;
+    cursor: pointer;
+    margin-bottom: 0.5rem;
+    transition: background-color 0.2s ease;
+}
+
+.details-toggle:hover {
+    background: rgba(39, 92, 42, 0.08);
+}
+
+.details-toggle span {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #275c2a;
+}
+
+.details-toggle .material-icons {
+    font-size: 1.2rem;
+    color: #275c2a;
+    transition: transform 0.2s ease;
+}
+
+.details-toggle.active .material-icons {
+    transform: rotate(180deg);
+}
+
+.details-content {
+    display: none;
+    padding: 0.5rem;
+    background: #ffffff;
+    border-radius: 6px;
+    margin-top: 0.5rem;
+}
+
+.details-content.active {
+    display: block;
+}
+
+.details-section {
+    margin-bottom: 1rem;
+}
+
+.details-section:last-child {
+    margin-bottom: 0;
+}
+
+.details-section h4 {
+    color: #275c2a;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.details-section p {
+    color: #1e4520;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    margin-bottom: 0.5rem;
+}
+
+.details-section ul {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+}
+
+.details-section li {
+    color: #1e4520;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    margin-bottom: 0.25rem;
+}
+
+.details-section li:last-child {
+    margin-bottom: 0;
+}
+
+/* ===== Ad Containers ===== */
+.ad-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    text-align: center;
+}
+
+.ad-top {
+    margin: 2rem 0;
+}
+
+.ad-bottom {
+    margin: 2rem 0 calc(4.5rem + env(safe-area-inset-bottom, 0px)) 0;
+}
+
+.adsbygoogle {
+    display: block;
+    width: 100%;
+    height: auto;
+    min-height: 100px;
+    background: #f8fafc;
+    border-radius: 8px;
+}
+
+/* ===== Media Queries ===== */
+@media (max-width: 768px) {
+    body {
+        padding: 0.75rem;
+        padding-bottom: calc(4.5rem + env(safe-area-inset-bottom, 0px));
+    }
+
+    .container {
+        padding: 0 0.5rem;
+    }
+
+    .hero-content {
+        margin-bottom: 0.5rem;
+    }
+
+    .hero-content h1 {
+        font-size: 1.75rem;
+    }
+
+    .filter-buttons {
+        padding: 0.5rem;
+    }
+
+    .filter-btn {
+        padding: 0.5rem;
+        font-size: 0.85rem;
+    }
+
+    .rule-card {
+        padding: 0.75rem;
+    }
+
+    .details-toggle {
+        padding: 0.4rem;
+    }
+
+    .details-content {
+        padding: 0.4rem;
+    }
+
+    .ad-container {
+        padding: 0 0.5rem;
+    }
+
+    .ad-top {
+        margin: 1.5rem 0;
+    }
+
+    .ad-bottom {
+        margin: 1.5rem 0 calc(4.5rem + env(safe-area-inset-bottom, 0px)) 0;
+    }
+}
+
+@media (max-width: 320px) {
+    .ad-container {
+        padding: 0 0.25rem;
+    }
+
+    .adsbygoogle {
+        min-height: 50px;
+    }
+}
+
+/* ===== Betting Rules ===== */
+.betting-rules {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #e5e7eb;
+}
+
+.betting-rules p {
+    margin: 0.4rem 0;
+    font-size: 0.85rem;
+}
+
+.betting-rules strong {
+    color: #275c2a;
+    font-weight: 600;
+}
