@@ -163,13 +163,11 @@ document.addEventListener('DOMContentLoaded', () => {
             renderRules(golfRules);
         }
 
-        // Add search functionality
         searchInput.addEventListener('input', (e) => {
             const searchTerm = e.target.value;
             filterRules('all', searchTerm);
         });
 
-        // Add filter button functionality
         filterButtons.forEach(button => {
             button.addEventListener('click', () => {
                 filterButtons.forEach(btn => btn.classList.remove('active'));
@@ -191,8 +189,8 @@ function debugRules() {
         console.log('Rules array:', golfRules);
         console.log('Rules array length:', golfRules.length);
         console.log('First rule:', golfRules[0]);
-        console.log('Rules container:', document.getElementById('rules-container'));
-        console.log('Search input:', document.getElementById('search-input'));
+        console.log('Rules container:', document.getElementById('rulesContainer'));
+        console.log('Search input:', document.getElementById('searchInput'));
         console.log('Filter buttons:', document.querySelectorAll('.filter-btn'));
     } else {
         console.error('golfRules not found');
