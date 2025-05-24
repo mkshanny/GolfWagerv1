@@ -8,7 +8,7 @@ const ASSETS_TO_CACHE = [
   './app.js',
   './rules.js',
   './manifest.json',
-  './clover-logo.png'
+  './newlogo.png'
 ];
 
 // Install event - cache assets
