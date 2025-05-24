@@ -37,7 +37,6 @@ body {
     padding-top: calc(0.5rem + env(safe-area-inset-top, 0px));
     padding-bottom: 0.5rem;
     width: 100%;
-    background: #faf500;
     border-radius: 0 0 18px 18px;
 }
 
