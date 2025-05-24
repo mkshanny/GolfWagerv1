@@ -156,7 +156,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
             let filteredRules = golfRules;
 
-            // Always search across all categories if there is a search term
             if (searchTerm) {
                 const lowerSearchTerm = searchTerm.toLowerCase();
                 filteredRules = filteredRules.filter(rule => 
@@ -166,7 +165,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     (rule.category || '').toLowerCase().includes(lowerSearchTerm)
                 );
             } else if (category !== 'all') {
-                // Only filter by category if search is empty
                 filteredRules = filteredRules.filter(rule => rule.category === category);
             }
 
@@ -186,7 +184,6 @@ document.addEventListener('DOMContentLoaded', () => {
         // Add search functionality
         searchInput.addEventListener('input', (e) => {
             const searchTerm = e.target.value;
-            // Always search across all categories
             filterRules('all', searchTerm);
         });
 
@@ -199,7 +196,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Add active class to clicked button
                 button.classList.add('active');
                 
-                // Only filter by category if search is empty
                 const category = button.dataset.category;
                 const searchTerm = searchInput.value.trim();
                 if (searchTerm) {
