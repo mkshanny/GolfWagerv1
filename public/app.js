@@ -196,3 +196,40 @@ function debugRules() {
         console.error('golfRules not found');
     }
 }
+
+// --- Dynamic Meta Tag and Title Updates ---
+function updateMetaTagsForRoute() {
+    const route = window.location.pathname.toLowerCase();
+    let title = 'GolfWagers - Golf Betting Rules & Scoring Guide';
+    let description = 'GolfWagers: The ultimate golf betting rules and scoring guide. Learn, play, and bet smarter with clear explanations for every golf game and format.';
+
+    if (route === '/rules') {
+        title = 'GolfWagers - Golf Rules';
+        description = 'Explore all the official and casual golf rules. Learn how to play by the book and enjoy your round!';
+    } else if (route === '/games') {
+        title = 'GolfWagers - Golf Games & Formats';
+        description = 'Discover popular golf games and formats. Spice up your next round with new ways to play and bet!';
+    } else if (route === '/about') {
+        title = 'About GolfWagers';
+        description = 'Learn more about GolfWagers, our mission, and how we help golfers enjoy the game.';
+    } else if (route === '/contact') {
+        title = 'Contact GolfWagers';
+        description = 'Get in touch with the GolfWagers team. We welcome your questions, feedback, and suggestions!';
+    }
+
+    document.title = title;
+    let metaDesc = document.querySelector('meta[name="description"]');
+    if (!metaDesc) {
+        metaDesc = document.createElement('meta');
+        metaDesc.setAttribute('name', 'description');
+        document.head.appendChild(metaDesc);
+    }
+    metaDesc.setAttribute('content', description);
+}
+
+// Update meta tags on initial load
+updateMetaTagsForRoute();
+
+// Optionally, update meta tags on popstate (browser navigation)
+window.addEventListener('popstate', updateMetaTagsForRoute);
+// If you use pushState for navigation, call updateMetaTagsForRoute() after changing the route.
