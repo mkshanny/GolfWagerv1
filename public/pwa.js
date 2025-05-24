@@ -12,6 +12,13 @@ class iOSInstaller {
             return;
         }
 
+        // Check if device is mobile
+        const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+        if (!isMobile) {
+            console.log('Not a mobile device - no need to show install prompt');
+            return;
+        }
+
         // Show overlay after 1 second
         setTimeout(() => {
             this.showInstallPrompt();
@@ -37,7 +44,7 @@ class iOSInstaller {
         
         const content = `
             <div class="ios-overlay-content">
-                <h2>Add Casual Golf Rules to your Home Screen</h2>
+                <h2>Add Golf Wagers to your Home Screen</h2>
                 <div class="ios-instructions">
                     <div class="ios-share-icon">
                         <img src="share-icon.png" alt="Share button">
