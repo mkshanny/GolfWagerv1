@@ -1,0 +1,8 @@
+{
+  "devDependencies": {
+    "terser": "^5.39.2"
+  },
+  "scripts": {
+    "minify-js": "terser public/app.js -c -m -o public/app.js && terser public/rules.js -c -m -o public/rules.js && terser public/pwa.js -c -m -o public/pwa.js && terser public/sw.js -c -m -o public/sw.js"
+  }
+}
