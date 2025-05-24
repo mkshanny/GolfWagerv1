@@ -156,17 +156,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
             let filteredRules = golfRules;
 
-            if (category !== 'all') {
-                filteredRules = filteredRules.filter(rule => rule.category === category);
-            }
-
+            // If there's a search term, search across all categories
             if (searchTerm) {
                 const lowerSearchTerm = searchTerm.toLowerCase();
                 filteredRules = filteredRules.filter(rule => 
                     rule.title.toLowerCase().includes(lowerSearchTerm) ||
                     (rule.scenario || rule.question || '').toLowerCase().includes(lowerSearchTerm) ||
-                    (rule.explanation || rule.answer || '').toLowerCase().includes(lowerSearchTerm)
+                    (rule.explanation || rule.answer || '').toLowerCase().includes(lowerSearchTerm) ||
+                    (rule.category || '').toLowerCase().includes(lowerSearchTerm)
                 );
+            }
+            // If no search term, apply category filter
+            else if (category !== 'all') {
+                filteredRules = filteredRules.filter(rule => rule.category === category);
             }
 
             renderRules(filteredRules);
@@ -185,9 +187,8 @@ document.addEventListener('DOMContentLoaded', () => {
         // Add search functionality
         searchInput.addEventListener('input', (e) => {
             const searchTerm = e.target.value;
-            const activeButton = document.querySelector('.filter-btn.active');
-            const category = activeButton ? activeButton.dataset.category : 'all';
-            filterRules(category, searchTerm);
+            // When searching, ignore the active category and search across all rules
+            filterRules('all', searchTerm);
         });
 
         // Add filter button functionality
@@ -199,9 +200,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Add active class to clicked button
                 button.classList.add('active');
                 
-                // Filter rules based on category
+                // Filter rules based on category and current search term
                 const category = button.dataset.category;
-                filterRules(category, searchInput.value.trim());
+                const searchTerm = searchInput.value.trim();
+                filterRules(category, searchTerm);
             });
         });
     }, 100); // Small delay to ensure rules.js is loaded
