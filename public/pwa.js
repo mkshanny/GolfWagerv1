@@ -19,9 +19,15 @@ class iOSInstaller {
             return;
         }
 
+        // Check if the prompt has already been shown this session
+        if (sessionStorage.getItem('pwaPromptShown')) {
+            return;
+        }
+
         // Show overlay after 1 second
         setTimeout(() => {
             this.showInstallPrompt();
+            sessionStorage.setItem('pwaPromptShown', 'true');
         }, 1000);
     }
 
