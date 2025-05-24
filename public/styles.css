@@ -331,7 +331,7 @@ body {
     }
 
     .filter-buttons {
-        padding: 0.5rem;
+        padding: 0.5rem 0.5rem calc(0.5rem + env(safe-area-inset-bottom, 0px)) 0.5rem;
     }
 
     .filter-btn {
@@ -397,5 +397,11 @@ body {
     }
     .hero-content {
         padding-top: env(safe-area-inset-top);
+    }
+}
+
+@supports(padding-bottom: env(safe-area-inset-bottom)) {
+    .filter-buttons {
+        padding-bottom: calc(0.75rem + env(safe-area-inset-bottom));
     }
 }
