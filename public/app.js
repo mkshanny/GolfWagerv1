@@ -181,21 +181,15 @@ document.addEventListener('DOMContentLoaded', () => {
             renderRules(golfRules);
         }
 
-        // Add search functionality
         searchInput.addEventListener('input', (e) => {
             const searchTerm = e.target.value;
             filterRules('all', searchTerm);
         });
 
-        // Add filter button functionality
         filterButtons.forEach(button => {
             button.addEventListener('click', () => {
-                // Remove active class from all buttons
                 filterButtons.forEach(btn => btn.classList.remove('active'));
-                
-                // Add active class to clicked button
                 button.classList.add('active');
-                
                 const category = button.dataset.category;
                 const searchTerm = searchInput.value.trim();
                 if (searchTerm) {
