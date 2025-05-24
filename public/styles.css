@@ -33,9 +33,12 @@ body {
     align-items: center;
     justify-content: center;
     gap: 0;
-    margin-bottom: 0.75rem;
-    padding-top: env(safe-area-inset-top, 0px);
+    margin-bottom: 0.5rem;
+    padding-top: calc(0.5rem + env(safe-area-inset-top, 0px));
+    padding-bottom: 0.5rem;
     width: 100%;
+    background: #faf500;
+    border-radius: 0 0 18px 18px;
 }
 
 .clover-icon {
@@ -44,6 +47,7 @@ body {
     height: auto;
     object-fit: contain;
     margin-top: 0;
+    margin-bottom: 0;
     margin-right: 0;
     display: block;
 }
