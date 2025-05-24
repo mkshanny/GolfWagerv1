@@ -31,18 +31,20 @@ body {
 .hero-content {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    justify-content: center;
+    gap: 0;
     margin-bottom: 0.75rem;
     padding-top: env(safe-area-inset-top, 0px);
+    width: 100%;
 }
 
 .clover-icon {
-    width: auto;
-    height: 48px;
-    max-width: 160px;
+    width: 100%;
+    max-width: 400px;
+    height: auto;
     object-fit: contain;
     margin-top: 0;
-    margin-right: 12px;
+    margin-right: 0;
     display: block;
 }
 
