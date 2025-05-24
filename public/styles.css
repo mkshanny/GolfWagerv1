@@ -17,6 +17,7 @@ body {
     padding: 1rem;
     padding-bottom: calc(4.5rem + env(safe-area-inset-bottom, 0px));
     margin: 0;
+    padding-top: calc(1rem + env(safe-area-inset-top, 0px));
 }
 
 .container {
@@ -32,6 +33,7 @@ body {
     align-items: center;
     gap: 0.5rem;
     margin-bottom: 0.75rem;
+    padding-top: env(safe-area-inset-top, 0px);
 }
 
 .clover-icon {
@@ -387,4 +389,13 @@ body {
 .betting-rules strong {
     color: #275c2a;
     font-weight: 600;
+}
+
+@supports(padding-top: env(safe-area-inset-top)) {
+    body {
+        padding-top: calc(1rem + env(safe-area-inset-top));
+    }
+    .hero-content {
+        padding-top: env(safe-area-inset-top);
+    }
 }
